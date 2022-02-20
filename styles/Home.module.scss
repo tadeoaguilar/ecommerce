@@ -1,0 +1,57 @@
+$color-a: #E63946;
+$color-b: #E63946;
+$color-c: #E63946;
+$color-d: #E63946;
+$color-e: #E63946;
+
+
+
+.main {
+  min-height: 100vh;
+  /*padding: 4rem 0;*/
+//  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: block;
+  
+  height: 70px;
+  ul{
+    display: flex;
+    list-style-type: none;
+    
+  }
+  a {
+    
+    padding: 10px;
+    margin: 0 5px;
+  }
+  .flex {
+    max-width: 85vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+  
+}
+@media  (max-width: 600px) {
+  .navbar {
+  border: #E63946 2px solid;
+  a{
+    display: none;
+
+  }
+  li {
+    padding: 1rem;
+  }
+}
+  
+
+} 
+
