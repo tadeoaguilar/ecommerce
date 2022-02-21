@@ -24,10 +24,12 @@ type topBarProps ={
     }
 }
 
-type mainIcon ={
+type iconLibrary ={
  
-  fields:{        
+  fields:{    
+        name:string;    
         icon:{
+          name:string;
           fields:{
             file:{
               url:string
@@ -36,34 +38,30 @@ type mainIcon ={
         }
   }
 }
-type mainHero ={
- 
-  fields:{        
-        hero:{
-          fields:{
-            file:{
-              url:string
-            }
-          }
-        }
-  }
-}
+
+
 
 type  Props = {
   topBar:  topBarProps[],
   menu: topBarProps[],
-  mainIcon: mainIcon[],
-  heroImage: mainHero[]
+  iconLibrary: iconLibrary[],
+
 }
 
-const Home: NextPage<Props> = ({topBar,menu,mainIcon,heroImage}) => {
+const Home: NextPage<Props> = ({topBar,menu,iconLibrary}) => {
   //console.log(props.menus[0].fields.icon.fields.file.url)
   
   const topItems = topBar
   const menuItems= menu
-  const Icon =mainIcon
-  const hImage =heroImage
-  console.log(hImage)
+  const Icon =iconLibrary
+
+  
+  const mainIcon= Icon.filter( (a)=>{return a.fields.name==='mainIcon'})[0].fields.icon.fields.file.url 
+  const heroImage= Icon.filter( (a)=>{return a.fields.name==='heroImage'})[0].fields.icon.fields.file.url 
+  const hamburgerMenu= Icon.filter( (a)=>{return a.fields.name==='hamburgerMenu'})[0].fields.icon.fields.file.url 
+  console.log(mainIcon)
+  console.log(heroImage)
+  console.log(hamburgerMenu)
   topItems.sort( (a,b) => {
     return a.fields.id - b.fields.id })
   
@@ -95,22 +93,28 @@ const Home: NextPage<Props> = ({topBar,menu,mainIcon,heroImage}) => {
           
               <div className= {styles.flex}>
                 <div className={styles.mainIcon}>
-                  {Icon[0].fields.icon.fields.file.url && <Image src={`https:${Icon[0].fields.icon.fields.file.url}` } alt="Vercel Logo" width={200} height={60} />}
+                {mainIcon &&
+                  <Image src={`https:${mainIcon}` } alt="Tadeo Logo" width={200} height={60} />}
                 </div>
-                <Menu>   
-                  {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                   <MenuItem key={i}  href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
+               
+                  <Menu>   
+                    {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                    <MenuItem key={i}  href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
+                    ))}
+                  </Menu>
+                  <Menu>    
+                    {menuItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
+                    <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} >  </MenuItem>  
                   ))}
-                </Menu>
-                <Menu>    
-                  {menuItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
-                  <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} >  </MenuItem>  
-                ))}
-                </Menu>
+                  </Menu>
+                  <div className={styles.menuHide}>
+                   <Image src={`https:${hamburgerMenu}` } alt="Vercel Logo"  height={16} width={16} />
+                   </div>
               </div>
           </div>
-          <div className={styles.heroImage}>
-          {hImage[0].fields.hero.fields.file.url && <Image src={`https:${hImage[0].fields.hero.fields.file.url}` } alt="Vercel Logo" layout='responsive' height={140} width={400}/>}
+          
+          <div className = {styles.heroImage}>
+              {heroImage && <Image src={`https:${heroImage}` } alt="Vercel Logo" layout='responsive' height={140} width={400}/>}
           </div>
 
       </main>
@@ -147,21 +151,18 @@ export async function getStaticProps() {
     'fields.visible': 'true',
     content_type: 'menu',
   })
-  const mainIcon = await client.getEntries({
+  const iconLibrary = await client.getEntries({
     
-    content_type: 'mainIcon',
+    content_type: 'iconLibrary',
   })
-  const heroImage = await client.getEntries({
-    
-    content_type: 'heroImage',
-  })
+
 
   return {
     props:{
       topBar: topBar.items,
       menu: menu.items,
-      mainIcon: mainIcon.items,
-      heroImage: heroImage.items
+      iconLibrary: iconLibrary.items,
+      
     }
   }
 }
