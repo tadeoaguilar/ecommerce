@@ -1,6 +1,6 @@
 import React, { Children, FunctionComponent } from 'react'
 import styles from '../styles/Home.module.scss'
-const TopBar:FunctionComponent = (props) => {
+const Menu:FunctionComponent = (props) => {
   return (
     <nav className={styles.topbar}>
         <ul  >
@@ -10,6 +10,4 @@ const TopBar:FunctionComponent = (props) => {
   )
 }
 
-export default TopBar
-
-
+export default Menu

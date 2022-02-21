@@ -4,17 +4,18 @@ import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
 
 interface TopItemType {
-    image: string,
+    image?: string,
     href: string,
     isActive: boolean
 }
 
 
 
-const TopItem:FunctionComponent<TopItemType>  = (props) => {
+const MenuItem:FunctionComponent<TopItemType>  = (props) => {
   return (
     <li key={props.image} className={styles.topitem} >
-        <Image src={props.image} alt="Vercel Logo" width={16} height={16} />
+        {props.image && <Image src={props.image} alt="Vercel Logo" width={16} height={16} />}
+        
         <Link href = {props.href}>
             <a  > {props.children} </a>
         </Link>
@@ -23,4 +24,4 @@ const TopItem:FunctionComponent<TopItemType>  = (props) => {
   )
 }
 
-export default TopItem
+export default MenuItem

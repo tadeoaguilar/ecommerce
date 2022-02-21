@@ -18,11 +18,13 @@ $color-e: #E63946;
 
 .navbar {
   display: block;
-  
-  height: 70px;
+  background-color: #f6f6f6;
+  height: 1.6rem;
+  align-items: center;
   ul{
     display: flex;
     list-style-type: none;
+    align-items: center;
     
   }
   a {
@@ -55,3 +57,53 @@ $color-e: #E63946;
 
 } 
 
+.menu {
+  display: block;
+  background-color: #ffffff;
+  height: 2rem;
+  align-items: center;
+  ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    
+  }
+  a {
+    
+    padding: 10px;
+    
+    margin: 0 5px;
+  }
+  .flex {
+    max-width: 85vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    margin: 0 auto;
+    .mainIcon {
+      margin-top: 15px;
+      
+    
+    }
+  }
+  
+}
+@media  (max-width: 600px) {
+  .menu {
+  border: #E63946 2px solid;
+  a{
+    display: none;
+
+  }
+  li {
+    padding: 1rem;
+  }
+}
+  
+
+} 
+
+.heroImage {
+  margin-top: 25px;
+}

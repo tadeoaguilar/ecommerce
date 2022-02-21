@@ -3,11 +3,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import TopNavBar from '../components/TopNavBar'
-import TopItem from '../components/TopItem'
+import Menu from '../components/Menu'
+import MenuItem from '../components/MenuItem'
 import {createClient} from 'contentful'
 
-interface menuProps {
+type topBarProps ={
  
     fields:{
           position: string;
@@ -23,15 +23,48 @@ interface menuProps {
           }
     }
 }
-interface Props {
-  menus:  menuProps[]
+
+type mainIcon ={
+ 
+  fields:{        
+        icon:{
+          fields:{
+            file:{
+              url:string
+            }
+          }
+        }
+  }
+}
+type mainHero ={
+ 
+  fields:{        
+        hero:{
+          fields:{
+            file:{
+              url:string
+            }
+          }
+        }
+  }
 }
 
-const Home: NextPage<Props> = ({menus}) => {
+type  Props = {
+  topBar:  topBarProps[],
+  menu: topBarProps[],
+  mainIcon: mainIcon[],
+  heroImage: mainHero[]
+}
+
+const Home: NextPage<Props> = ({topBar,menu,mainIcon,heroImage}) => {
   //console.log(props.menus[0].fields.icon.fields.file.url)
-  const items = menus
-   
-  items.sort( (a,b) => {
+  
+  const topItems = topBar
+  const menuItems= menu
+  const Icon =mainIcon
+  const hImage =heroImage
+  console.log(hImage)
+  topItems.sort( (a,b) => {
     return a.fields.id - b.fields.id })
   
   return (
@@ -43,20 +76,43 @@ const Home: NextPage<Props> = ({menus}) => {
       </Head>
 
       <main className={styles.main}>
-    <div className={styles.navbar}>
-      <div className= {styles.flex}>
-    <TopNavBar>   
-      {items.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-      <TopItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </TopItem>
-      ))}
-    </TopNavBar>
-    <TopNavBar>    
-      {items.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
-      <TopItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </TopItem>    
-    ))}
-    </TopNavBar>
-    </div>
-        </div>
+          <div className={styles.navbar}>
+              <div className= {styles.flex}>
+     
+                <Menu>   
+                  {topItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                   <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
+                  ))}
+                </Menu>
+                <Menu>    
+                  {topItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
+                  <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>    
+                ))}
+                </Menu>
+              </div>
+          </div>
+          <div className={styles.menu}>
+          
+              <div className= {styles.flex}>
+                <div className={styles.mainIcon}>
+                  {Icon[0].fields.icon.fields.file.url && <Image src={`https:${Icon[0].fields.icon.fields.file.url}` } alt="Vercel Logo" width={200} height={60} />}
+                </div>
+                <Menu>   
+                  {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                   <MenuItem key={i}  href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
+                  ))}
+                </Menu>
+                <Menu>    
+                  {menuItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
+                  <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} >  </MenuItem>  
+                ))}
+                </Menu>
+              </div>
+          </div>
+          <div className={styles.heroImage}>
+          {hImage[0].fields.hero.fields.file.url && <Image src={`https:${hImage[0].fields.hero.fields.file.url}` } alt="Vercel Logo" layout='responsive' height={140} width={400}/>}
+          </div>
+
       </main>
 
       <footer className={styles.footer}>
@@ -79,17 +135,33 @@ const Home: NextPage<Props> = ({menus}) => {
 export async function getStaticProps() {
 //  export async function getServerSideProps() {
   const client = createClient({
-      space: '5r6b6ygxdibq',
-      accessToken: 'LieffQDlIdZh8YexzPZtyk-Nb7fHLGQF4jTpaEBdrKs'
+      space: process.env.CONTENTFUL_SPACE || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ''
   })
-  const res = await client.getEntries({
+  console.log(`Token: ${process.env.CONTENTFUL_ACCESS_TOKEN}`)
+  const topBar = await client.getEntries({
+    'fields.visible': 'true',
+    content_type: 'topBar',
+  })
+  const menu = await client.getEntries({
     'fields.visible': 'true',
     content_type: 'menu',
   })
-  console.log(res)
+  const mainIcon = await client.getEntries({
+    
+    content_type: 'mainIcon',
+  })
+  const heroImage = await client.getEntries({
+    
+    content_type: 'heroImage',
+  })
+
   return {
     props:{
-      menus: res.items
+      topBar: topBar.items,
+      menu: menu.items,
+      mainIcon: mainIcon.items,
+      heroImage: heroImage.items
     }
   }
 }
