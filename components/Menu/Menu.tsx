@@ -1,9 +1,9 @@
 import React, { Children, FunctionComponent } from 'react'
-import styles from '../styles/Home.module.scss'
+import style from './Menu.module.css'
 const Menu:FunctionComponent = (props) => {
   return (
-    <nav className={styles.topbar}>
-        <ul  >
+    <nav >
+        <ul  className={style.root}>
             {props.children}
         </ul>
     </nav>
