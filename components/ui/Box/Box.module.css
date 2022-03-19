@@ -1,0 +1,8 @@
+
+.root {
+    @apply flex justify-between px-6 mx-auto bg-slate-900 text-neutral-50 ;
+    
+
+
+}
+

@@ -7,7 +7,7 @@ interface Props {
 }
 
 
-const Container: FC<Props> = ({children, el: Component = "div"}) => {
+const Box: FC<Props> = ({children, el: Component = "div"}) => {
 
   return (
     <Component
@@ -17,4 +17,4 @@ const Container: FC<Props> = ({children, el: Component = "div"}) => {
   )
 }
 
-export default Container;
+export default Box;

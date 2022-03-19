@@ -13,16 +13,17 @@ interface Props {
 }
 
 const Navbar: FC<Props> = ({topItems}) => {
-
+  console.log(topItems[0].fields.icon.fields.file.url)
 
     return (
 
                   
-        <Box >
+        <div className= 'flex bg-slate-900 ' >
      
-           
+     <div className= 'flex text-white justify-between   mx-auto w-10/12' >
         <Menu>   
           {topItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
+            
            <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
           ))}
         </Menu>
@@ -32,7 +33,8 @@ const Navbar: FC<Props> = ({topItems}) => {
           <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>    
         ))}
         </Menu>
-      </Box>
+        </div>
+      </div>
 
     )
 
