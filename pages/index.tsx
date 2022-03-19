@@ -41,29 +41,35 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
           
           <Navbar topItems={topItems} /> 
           
-          <div >
           
-              <div >
-                <div >
+          
+              <div className='flex justify-between mx-auto w-10/12' >
+                <div className='border-solid relative w-[9rem] h-[3rem] '>
                 {mainIcon &&
-                  <Image src={`https:${mainIcon}` } alt="Tadeo Logo" width={200} height={60} />}
+                  <Image src={`https:${mainIcon}` } alt="Tadeo Logo" layout='fill' />}
                 </div>
                
+                  <div className='sm:hidden lg:flex items-center'>
                   <Menu>   
                     {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
                     <MenuItem key={i}  href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
                     ))}
                   </Menu>
+                  </div>
+                  <div className='sm:hidden lg:flex  items-center m-0'>
                   <Menu>    
                     {menuItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
                     <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} >  </MenuItem>  
                   ))}
+                  
                   </Menu>
-                  <div >
+                  </div>
+                  <div className='sm:in-line lg:hidden'>
                    <Image src={`https:${hamburgerMenu}` } alt="Vercel Logo"  height={16} width={16} />
                    </div>
+
               </div>
-          </div>
+          
           
           <div >
               {heroImage && <Image src={`https:${heroImage}` } alt="Vercel Logo" layout='fill' />}

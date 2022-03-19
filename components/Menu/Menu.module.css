@@ -6,7 +6,7 @@
     @apply flex  py-1 px-2
 }
 .menu_item {
-    @apply  relative w-4 h-4 px-2;
+    @apply  relative w-4 h-4 px-1;
     
     
 }

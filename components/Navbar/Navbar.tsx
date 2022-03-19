@@ -18,7 +18,7 @@ const Navbar: FC<Props> = ({topItems}) => {
     return (
 
                   
-        <div className= 'flex bg-slate-900 ' >
+        <div className= 'flex bg-black' >
      
      <div className= 'flex text-white justify-between   mx-auto w-10/12' >
         <Menu>   
