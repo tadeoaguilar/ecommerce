@@ -2,31 +2,19 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-//import styles from '../styles/Home.module.scss'
-import {Menu,MenuItem} from '../components/Menu'
+import style from '../components/Menu/Menu.module.css'
+
 
 import {createClient} from 'contentful'
 import { homeProps } from '../framework/common/types/webpage'
-import Navbar from '../components/Navbar/Navbar'
-
+import Topbar from '../components/TopBar/Topbar'
+import Menu from '@components/Menu'
 
 
 
 const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
 
-
-  const topItems = topBar
-  const menuItems= menu
-  const Icon =iconLibrary
-
-  
-  const mainIcon= Icon.filter( (a)=>{return a.fields.name==='mainIcon'})[0].fields.icon.fields.file.url 
-  const heroImage= null//Icon.filter( (a)=>{return a.fields.name==='heroImage'})[0].fields.icon.fields.file.url 
-  const hamburgerMenu= Icon.filter( (a)=>{return a.fields.name==='hamburgerMenu'})[0].fields.icon.fields.file.url 
-  console.log(mainIcon)
-  console.log(heroImage)
-  console.log(hamburgerMenu)
-  topItems.sort( (a,b) => {
+  topBar.sort( (a,b) => {
     return a.fields.id - b.fields.id })
   
   return (
@@ -39,55 +27,17 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
 
       <main >
           
-          <Navbar topItems={topItems} /> 
+          <Topbar topItems={topBar} /> 
+          
+          <Menu menu={menu} iconLibrary={iconLibrary} />
+          
+         
           
           
-          
-              <div className='flex justify-between mx-auto w-10/12' >
-                <div className='border-solid relative w-[9rem] h-[3rem] '>
-                {mainIcon &&
-                  <Image src={`https:${mainIcon}` } alt="Tadeo Logo" layout='fill' />}
-                </div>
-               
-                  <div className='sm:hidden lg:flex items-center'>
-                  <Menu>   
-                    {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                    <MenuItem key={i}  href={e.fields.link} isActive={true} > {e.fields.name} </MenuItem>
-                    ))}
-                  </Menu>
-                  </div>
-                  <div className='sm:hidden lg:flex  items-center m-0'>
-                  <Menu>    
-                    {menuItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
-                    <MenuItem key={i} image={`https:${e.fields.icon.fields.file.url}`} href={e.fields.link} isActive={true} >  </MenuItem>  
-                  ))}
-                  
-                  </Menu>
-                  </div>
-                  <div className='sm:in-line lg:hidden'>
-                   <Image src={`https:${hamburgerMenu}` } alt="Vercel Logo"  height={16} width={16} />
-                   </div>
-
-              </div>
-          
-          
-          <div >
-              {heroImage && <Image src={`https:${heroImage}` } alt="Vercel Logo" layout='fill' />}
-          </div>
-
       </main>
 
       <footer >
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-         
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-         
-        </a>
+        
       </footer>
     </>
   )

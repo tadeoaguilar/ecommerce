@@ -1,15 +1,3 @@
-.root {
-    @apply flex  
-}
-
-.menu {
-    @apply flex  py-1 px-2
-}
-.menu_item {
-    @apply  relative w-4 h-4 px-1;
-    
-    
-}
-.label {
-    @apply px-1;
+.style_test{
+    @apply bg-primary-300;
 }

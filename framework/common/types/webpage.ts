@@ -16,6 +16,8 @@ export interface topBarProps {
     
 }
 
+export interface menu extends topBarProps {}
+
 export interface iconLibrary {
  
   fields:{    
@@ -37,5 +39,5 @@ export interface  homeProps  {
   topBar:  topBarProps[],
   menu: topBarProps[],
   iconLibrary: iconLibrary[],
-
+  
 }
