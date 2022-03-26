@@ -21,44 +21,27 @@ const Menu: FC<Props> = ({menu, iconLibrary}) => {
   return (
       <>
 
-            <div className= 'flex bg-primary-100' >                
-                <div className= 'flex justify-between mx-auto w-10/12 border-2 ' >                
+            <div className= 'flex my-3' >                
+                <nav className= 'flex justify-between mx-auto w-10/12 border-2 ' >            
 
                     {/*   Navbar -- Icon    */ }
-                    <div className='my-2 relative w-[9rem] h-[2rem] p-6 '>
-                        {mainIcon &&
-                        <Image src={`https:${mainIcon}` } alt="Tadeo Logo" layout='fill' />}
+                    <div className=' relative w-[8rem]  p-6 '>
+                        {mainIcon && <Image src={`https:${mainIcon}` } alt="Tadeo Logo" layout='fill' />}
                     </div>
 
                     {/*   Navbar -- Main Menu    */ }
-                    <List style='w-full my-2 justify-end text-primary-400  mr-16 sm:hidden lg:flex'>   
+                    <List style='w-full  justify-end text-primary-400  mr-16 sm:hidden lg:flex'>   
                         {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                        
-                        
-                        <ListItem style='p-4 hover:text-accent hover:text-xl hover:p-0'  key={`https:${e.fields.name}`}  >
-                        
-                        <Link href = {e.fields.link}>
-                            <a  className={style.label}> {e.fields.name} </a>
-                        </Link>
+                        <ListItem style='p-4 hover:text-accent hover:text-xl hover:p-0'  key={`https:${e.fields.name}`}  >                        
+                            <Link href = {e.fields.link}><a  className={style.label}> {e.fields.name} </a></Link>                        
                         </ListItem>
-
                         ))}
-                    </List>
-                    
-                    <button className=' sm:in-line lg:hidden w-full flex justify-end my-auto'>
-                        <Image src={`https:${hamburgerMenu}` } alt="Vercel Logo"  height={16} width={16} />
-                    </button>
-                    <button className=' bg-accent-100 hover:bg-accent text-accent hover:text-white  rounded-lg my-2 cursor-pointer w-44 text-sm hover:text-xl hover:pt-0 hover:pb-0 leading-5 pt-3 pb-3 text-center   sm:hidden lg:block'>
-                        Button
-                    </button>
-                    
-   
- <nav>
-   
- </nav>
-   </div>
- 
- </div>
+                    </List>                        
+                  
+                    <button type="button" className="focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5  mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Red</button>
+                
+                </nav>
+            </div>
 
 
 

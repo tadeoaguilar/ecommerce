@@ -12,7 +12,7 @@ interface Props {
 
 import React from 'react'
 
-const List:FC<Props> = ({style,children,key}) => {
+const ListItem:FC<Props> = ({style,key,children}) => {
   
   
   return (
@@ -22,4 +22,4 @@ const List:FC<Props> = ({style,children,key}) => {
   )
 }
 
-export default List
+export default ListItem
