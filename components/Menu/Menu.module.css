@@ -9,7 +9,7 @@
 @apply relative w-[12rem] h-[3rem] p-9 
 }
 .List{
-    @apply hidden w-full  justify-end text-primary-400  mr-16 sm:hidden lg:flex
+    @apply hidden w-full  justify-end text-primary-400  mr-16  md:flex 
 }
 .ListItem{
     @apply text-2xl p-4 font-medium focus:ring-4 focus:ring-red-300   hover:text-accent transition-all ease-in-out delay-150  
