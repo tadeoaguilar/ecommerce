@@ -16,8 +16,8 @@ const ListItem:FC<Props> = ({style,key,children}) => {
   
   
   return (
-    <li className={style} key ={key}  >
-        {children}
+    <li className="flex" key ={key}  >
+        <a className ={style} >{children} </a>
     </li>
   )
 }

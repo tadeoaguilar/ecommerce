@@ -1,3 +1,19 @@
-.style_test{
-    @apply bg-primary-300;
+.container {
+    @apply flex my-3
+}
+
+.navbar{
+ @apply flex justify-between mx-auto w-10/12 border-2 
+}
+.image{
+@apply relative w-[12rem] h-[3rem] p-9 
+}
+.List{
+    @apply hidden w-full  justify-end text-primary-400  mr-16 sm:hidden lg:flex
+}
+.ListItem{
+    @apply text-2xl p-4 font-medium focus:ring-4 focus:ring-red-300   hover:text-accent transition-all ease-in-out delay-150  
+}
+.btn{
+    @apply animate-bounce h-10 w-32 focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-3 rounded-lg text-2xl hover:animate-none  
 }

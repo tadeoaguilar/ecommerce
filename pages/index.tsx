@@ -16,6 +16,11 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
 
   topBar.sort( (a,b) => {
     return a.fields.id - b.fields.id })
+  menu.sort( (a,b) => {
+    return a.fields.id- b.fields.id
+  }
+
+  )
   
   return (
    <>
