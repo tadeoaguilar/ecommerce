@@ -15,7 +15,7 @@ const Hero = () => {
             </p>
             <button type="button" className=' h-10 w-32 focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-3 rounded-full text-2xl   '>Envia </button>
         </div>
-        <div className='  bg-primary-300 relative row-span-1 md:col-span-1  h-[20vh] md:h-[30vh] sm:row-span-1'>
+        <div className='  bg-primary-300 relative row-span-1 md:col-span-1 max-w-6xl h-[20vh] md:h-[30vh] sm:row-span-1'>
             <Image src='/hero-min.png' alt='main' layout='fill' />
         </div>
         
