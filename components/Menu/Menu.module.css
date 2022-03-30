@@ -1,19 +1,22 @@
 .container {
-    @apply flex my-3
+    @apply flex  bg-primary-100 mt-4
 }
 
 .navbar{
- @apply flex justify-between mx-auto w-10/12 border-2 
+ @apply flex mx-auto w-8/12 border-2
 }
-.image{
-@apply relative w-[12rem] h-[3rem] p-9 
+.right{
+    @apply flex items-center justify-end w-full 
+}
+.left{
+    @apply flex  items-start 
 }
 .List{
-    @apply hidden w-full  justify-end text-primary-400  mr-16  md:flex 
+    @apply hidden  justify-end text-primary-400  mr-16 lg:flex
 }
 .ListItem{
-    @apply text-2xl p-4 font-medium focus:ring-4 focus:ring-red-300   hover:text-accent transition-all ease-in-out delay-150  
+    @apply text-2xl px-4 font-medium focus:ring-4 focus:ring-red-300   hover:text-accent transition-all ease-in-out delay-150  
 }
 .btn{
-    @apply animate-bounce h-10 w-32 focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-3 rounded-lg text-2xl hover:animate-none  
+    @apply animate-bounce w-[8rem] focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-full text-2xl hover:animate-none  
 }

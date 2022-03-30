@@ -9,7 +9,7 @@ import {createClient} from 'contentful'
 import { homeProps } from '../framework/common/types/webpage'
 import Topbar from '../components/TopBar/Topbar'
 import Menu from '@components/Menu'
-
+import Hero from '@components/Hero/Hero'
 
 
 const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
@@ -32,12 +32,14 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
 
       <main >
           
-          <Topbar topItems={topBar} /> 
+         <Topbar topItems={topBar} />  
+
+         <div className=' bg-primary-100' >
           
           <Menu menu={menu} iconLibrary={iconLibrary} />
           
-         
-          
+         <Hero/> 
+         </div>
           
       </main>
 

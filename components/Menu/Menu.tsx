@@ -22,24 +22,21 @@ const Menu: FC<Props> = ({menu, iconLibrary}) => {
       <>
 
             <div className= {style.container} >                
-                <nav className= {style.navbar} >            
-
-                    {/*   Navbar -- Icon    */ }
-                    <div className={style.image}>
-                        {mainIcon && <Image src={`https:${mainIcon}` } alt="Tadeo Logo" layout='fill' />}
+                <nav className= {style.navbar} >     
+                    <div className={style.left}>
+                        {mainIcon && <Image src={`https:${mainIcon}` } alt="Tadeo Logo"  width={250} height={80}/>}
+                    </div>       
+                    <div className={style.right}>
+                        <List style={style.List}>   
+                            {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                            <ListItem style={style.ListItem} key={`https:${e.fields.name}`}  >                        
+                                <Link href = {e.fields.link}><a  className={style.label}> {e.fields.name} </a></Link>                        
+                            </ListItem>
+                            ))}
+                        </List>                        
+                    
+                        <button type="button" className={style.btn}>Red</button>
                     </div>
-
-                    {/*   Navbar -- Main Menu    */ }
-                    <List style={style.List}>   
-                        {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                        <ListItem style={style.ListItem} key={`https:${e.fields.name}`}  >                        
-                            <Link href = {e.fields.link}><a  className={style.label}> {e.fields.name} </a></Link>                        
-                        </ListItem>
-                        ))}
-                    </List>                        
-                  
-                    <button type="button" className={style.btn}>Red</button>
-                
                 </nav>
             </div>
 
