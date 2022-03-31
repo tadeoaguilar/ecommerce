@@ -13,9 +13,9 @@ const Hero = () => {
                 eat healthy again. Tailored to your personal tastes and
                 nutritional needs.
             </p>
-            <button type="button" className=' h-[3rem] w-[7rem] focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-3 rounded-full text-2xl   '>Envia </button>
+            <button type="button" className=' h-[3rem] w-[7rem] focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-1 md:my-3 rounded-full text-2xl   '>Envia </button>
         </div>
-        <div className='relative row-span-1 md:col-span-1 max-w-6xl h-[60%] md:h-[80%] sm:row-span-1'>
+        <div className=' self-start md:self-center relative row-span-1 md:col-span-1 max-w-6xl h-[60%] md:h-[80%] sm:row-span-1'>
             <Image src='/hero-min.png' alt='main' layout='fill' />
         </div>
         
