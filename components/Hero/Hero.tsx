@@ -14,6 +14,26 @@ const Hero = () => {
                 nutritional needs.
             </p>
             <button type="button" className=' h-[3rem] w-[7rem] focus:outline-none text-white bg-accent hover:bg-red-800 focus:ring-4 focus:ring-red-300 my-1 md:my-3 rounded-full text-2xl   '>Envia </button>
+            <div className='flex'>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-1.jpg' alt='customer1' layout='fill' />
+                </div>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-2.jpg' alt='customer1' layout='fill' />
+                </div>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-3.jpg' alt='customer1' layout='fill' />
+                </div>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-4.jpg' alt='customer1' layout='fill' />
+                </div>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-5.jpg' alt='customer1' layout='fill' />
+                </div>
+                <div className= ' ring-2 ring-accent mt-3 mr-[-1.2rem] rounded-full overflow-hidden relative w-10 h-10'>
+                    <Image src='/customer-6.jpg' alt='customer1' layout='fill' />
+                </div>
+            </div>
         </div>
         <div className=' self-start md:self-center relative row-span-1 md:col-span-1 max-w-6xl h-[60%] md:h-[80%] sm:row-span-1'>
             <Image src='/hero-min.png' alt='main' layout='fill' />
