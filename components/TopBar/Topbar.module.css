@@ -1,7 +1,7 @@
 
 
 .label {
-    @apply  pl-2 text-primary-100 hover:text-accent-100 hidden xl:inline text-[1.0rem];
+    @apply  pl-2 text-primary-100 hover:text-accent-100 hidden lg:inline text-[1.0rem];
 }
 .img_container{
     @apply relative w-5 h-5

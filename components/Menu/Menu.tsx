@@ -47,10 +47,10 @@ const Menu: FC<Props> = ({menu, iconLibrary}) => {
                     </div>
                 </nav>
                     <div className={style.hamburger}>
-                            <div className={btnOpen? ' hidden':' inline-block absolute z-50'} >
+                            <div className={btnOpen? ' hidden':' block relative z-50'} >
                                 <span className="material-icons" id='menu' onClick={clickHandler}>&#xe5d2;</span>
                             </div>
-                            <div className={!btnOpen? ' hidden':' inline-block absolute z-50'} >
+                            <div className={!btnOpen? ' hidden':'block relative z-50'} >
                                 <span className="material-icons" id='close' onClick={clickHandler}>&#xe5cd;</span>
                             </div>
                     </div>          
