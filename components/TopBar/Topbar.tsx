@@ -20,31 +20,31 @@ const Topbar: FC<Props> = ({topItems}) => {
           <div className= {cn(style.container,'bg-primary-400')} >     
             <nav className= {style.nav_bar} >
 
-              <List  style={style.container} >
-                  {topItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                      <ListItem style={style.list_left} key={e.fields.name}  >
+              <li  className={style.container} >
+                  {topItems.filter((a,i)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                      <ul className={style.list_left} key={i.toString()}  >
                           <div className={style.img_container} >
                               <Image  src={`https:${e.fields.icon.fields.file.url}`} alt="Vercel Logo" layout='fill' />
                           </div>
                           <Link href = {e.fields.link}>
                             <a  className={style.label}> {e.fields.name} </a>
                           </Link>
-                      </ListItem>
+                      </ul>
 
           ))}
-              </List>
-              <List style={style.container}>   
-                  {topItems.filter((a)=> {return a.fields.position === 'Right'}).map((e,i) => (
-                  <ListItem style={style.list_right} key={e.fields.name}  >
+              </li>
+              <ul className={style.container}>   
+                  {topItems.filter((a,i)=> {return a.fields.position === 'Right'}).map((e,i) => (
+                  <li className={style.list_right} key={i.toString()}  >
                     <div className={style.img_container} >
                       <Image  src={`https:${e.fields.icon.fields.file.url}`} alt="Vercel Logo" layout='fill' />
                     </div>
                     <Link href = {e.fields.link}>
                       <a  className= {style.label}> {e.fields.name} </a>
                     </Link>
-                  </ListItem>
+                  </li>
                   ))}
-              </List>
+              </ul>
              
             </nav>
           </div>

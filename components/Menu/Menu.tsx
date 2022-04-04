@@ -27,16 +27,19 @@ const Menu: FC<Props> = ({menu, iconLibrary}) => {
                         {mainIcon && <Image src={`https:${mainIcon}` } alt="Tadeo Logo"  width={250} height={80}/>}
                     </div>       
                     <div className={style.right}>
-                        <List style={style.List}>   
-                            {menuItems.filter((a)=> {return a.fields.position === 'Left'}).map((e,i) => (
-                            <ListItem style={style.ListItem} key={`https:${e.fields.name}`}  >                        
+                        <li className={style.List}>   
+                            {menuItems.filter((a,i)=> {return a.fields.position === 'Left'}).map((e,i) => (
+                            <ul className={style.ListItem} key={i.toString()}  >                        
                                 <Link href = {e.fields.link}><a  className={style.label}> {e.fields.name} </a></Link>                        
-                            </ListItem>
+                            </ul>
                             ))}
-                        </List>                        
-                    
-                        <button type="button" className={style.btn}>Red</button>
+                            <button key={5} type="button" className={style.btn}>Red</button>    
+                        </li>                        
+                        <div className={style.hamburger}>
+                            <span className="material-icons">&#xe5d2;</span>
+                        </div>
                     </div>
+
                 </nav>
             </div>
 
