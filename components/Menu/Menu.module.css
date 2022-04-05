@@ -3,11 +3,11 @@
 }
 
 .navbar{
- @apply   z-40 backdrop-blur-xl absolute top-0 left-0 h-[100vh] w-full flex justify-center content-center lg:flex lg:static lg:h-auto
+ @apply   z-40 backdrop-blur-xl absolute top-0 left-0 h-[100vh] w-full flex justify-center content-center lg:justify-end lg:content-end lg:flex lg:static lg:h-auto
 
 }
 .navbar_hidden{
-    @apply   hidden lg:flex
+    @apply   hidden  lg:flex lg:static lg:h-auto
    
    }
 
