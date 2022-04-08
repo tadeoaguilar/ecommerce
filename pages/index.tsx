@@ -3,7 +3,8 @@ import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import style from '../components/Menu/Menu.module.css'
-
+import {getAllProducts} from '../framework/common/getAllProducts'
+import {getConfig} from '../framework/common/config'
 
 import {createClient} from 'contentful'
 import { homeProps } from '../framework/common/types/webpage'
@@ -12,7 +13,7 @@ import Menu from '@components/Menu'
 import Hero from '@components/Hero/Hero'
 
 
-const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
+const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary,products}) => {
 
   topBar.sort( (a,b) => {
     return a.fields.id - b.fields.id })
@@ -20,6 +21,7 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary}) => {
     return a.fields.id- b.fields.id
   }
 
+  
   )
   
   return (
@@ -59,7 +61,7 @@ export async function getStaticProps() {
       space: process.env.CONTENTFUL_SPACE || '',
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ''
   })
-  console.log(`Token: ${process.env.CONTENTFUL_ACCESS_TOKEN}`)
+  
   const topBar = await client.getEntries({
     'fields.visible': 'true',
     content_type: 'topBar',
@@ -73,16 +75,24 @@ export async function getStaticProps() {
     content_type: 'iconLibrary',
   })
 
+const config = getConfig()
+const products = await getAllProducts(config)
+
 
   return {
     props:{
       topBar: topBar.items,
       menu: menu.items,
       iconLibrary: iconLibrary.items,
+      products: products
       
     }
   }
 }
+
+ 
+
+
 
 
 export default Home
