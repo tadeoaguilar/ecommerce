@@ -60,6 +60,7 @@ export type ApiFetcherOptions = {
 
   export const configWrapper = new Config({
     fetch: fetchApi,
+
     checkoutCookie: 'shopify_checkoutId'
   })
   
