@@ -1,4 +1,4 @@
-import { ShopifyProduct, ProductTest } from "../getAllProducts";
+import {Product} from '../types/product'
 export interface topBarProps {
  
     fields:{
@@ -40,7 +40,7 @@ export interface  homeProps  {
   topBar:  topBarProps[],
   menu: topBarProps[],
   iconLibrary: iconLibrary[],
-  products:ProductTest[]
+  products:Product[]
   
 }
 

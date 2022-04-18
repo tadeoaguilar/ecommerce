@@ -5,7 +5,7 @@ import Image from 'next/image'
 import style from '../components/Menu/Menu.module.css'
 import {getAllProducts} from '../framework/common/getAllProducts'
 import {getConfig} from '../framework/common/config'
-
+import ProductCard from '@components/ProductCard/ProductCard'
 import {createClient} from 'contentful'
 import { homeProps } from '../framework/common/types/webpage'
 import Topbar from '../components/TopBar/Topbar'
@@ -43,6 +43,8 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary,products}) => {
           <Menu menu={menu} iconLibrary={iconLibrary} />
           
          <Hero/> 
+          <ProductCard/>
+
          </div>
           
       </main>
@@ -53,6 +55,7 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary,products}) => {
     </>
   )
 }
+
 
 
 export async function getStaticProps() {
