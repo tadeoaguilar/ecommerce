@@ -43,7 +43,7 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary,products}) => {
           <Menu menu={menu} iconLibrary={iconLibrary} />
           
          <Hero/> 
-          <ProductCard/>
+          <ProductCard products={products}/>
 
          </div>
           
