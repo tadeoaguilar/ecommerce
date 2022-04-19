@@ -15,7 +15,7 @@ const ProductCard: FC<Props> = ({products }) => {
     
     console.log(products)
   return (
-    <div className= ' grid grid-cols-3 gap-10 w-8/12 mx-auto'>
+    <div className= ' grid grid-cols-1 md:grid-cols-3 gap-10 w-8/12 mx-auto'>
         { products.map((product) => {
             const {images,options} = product
             console.log(images)
