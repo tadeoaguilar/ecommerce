@@ -26,7 +26,7 @@ import {
       variants,
       ...rest
     } = productNode
-   
+
     const product: Product = {
       id,
       name,
@@ -43,7 +43,7 @@ import {
       normalizeProductVariants(variants) : [],
     ...rest
     }
-  
+
     return product
   }
 

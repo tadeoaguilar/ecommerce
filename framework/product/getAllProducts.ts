@@ -1,9 +1,9 @@
 import { config } from "process"
 
 import {normalizeProduct} from './normalize'
-import {ProductConnection} from './types/schema'
-import {Product} from './types/product'
-import {ApiConfig} from './types/api'
+import {ProductConnection} from '../common/types/schema'
+import {Product} from '../common/types/product'
+import {ApiConfig} from '../common/types/api'
 
 type ReturnType = {
     products: ProductConnection
@@ -17,7 +17,7 @@ type ReturnType = {
     const { data } = await config.fetch<ReturnType>({
         query: getAllProductsQuery
       })
-    console.log(data.products.edges[0].node.images.edges)
+    
     const products = data.products.edges.map(({ node: product }) =>
 
       normalizeProduct(product)
