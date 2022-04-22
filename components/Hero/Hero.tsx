@@ -4,8 +4,8 @@ import React from 'react'
 const Hero = () => {
   return (
     <>
-    <div className=' grid sm:mt-[1vh] md:mt-[4vh]  grid-rows-2 sm:grid-cols-1 sm:grid-rows-2 md:grid-cols-2 items-center w-8/12 mx-auto  bg-primary-100 ' > 
-        <div className=' h-auto md:h-[36vh]  col-span-1 sm:row-span-1 '>
+    <div className=' grid grid-cols-1 md:grid-cols-2 gap-12 mt-12  w-8/12 mx-auto' > 
+    <div className=' h-full col-span-1 sm:row-span-1 border-2 '>
             <h1 className=' my-6 text-[280%] sm:text-[300%] md:text-[100%]] text-primary-400  leading-[1.05] font-bold tracking-wider ' >
                 A healthy meal delivered to your door, every single day
             </h1> 
@@ -15,7 +15,7 @@ const Hero = () => {
                 nutritional needs.
             </p>
         </div>
-        <div className=' self-start md:self-center relative row-span-1 md:col-span-1 max-w-6xl h-[90%] sm:row-span-1 '>
+        <div className=' h-32 self-start md:self-center relative row-span-1 md:col-span-1 max-w-6xl   sm:row-span-1 '>
             <Image src='/hero-min.png' alt='main' layout='fill' />
         </div>
      </div>

@@ -5,22 +5,24 @@ import getProduct from "@framework/product/getProduct"
 export const getStaticPaths: GetStaticPaths = async () => {
     const config = getConfig()
     const { products } = await getAllProductsPaths(config)
-  
+    const rutas =  products.map(p => ({params: {slug_p: p.slug}}))
+    console.log('rutas')
+    console.log(JSON.stringify(rutas))
     return {
-      paths: products.map(p => ({params: {slug: p.slug}})),
+      paths: products.map(p => ({params: {slug_p: p.slug}})),
       fallback: false
     }
   }
   
   // provide product spefici data to the page
   export const getStaticProps = async ({
-    params }: GetStaticPropsContext<{slug: string}>
+    params }: GetStaticPropsContext<{slug_p: string}>
   ) => {
     const config = getConfig()
-  
+    
     const { product } = await getProduct({
       config,
-      variables: {slug: params?.slug}
+      variables: {slug: params?.slug_p}
     })
   
     return {
@@ -36,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   
     return (
       <>
-        { product && <div>{product.name}</div>}
+        { product && <div>{JSON.stringify(product)}</div>}
       </>
     )
   }
