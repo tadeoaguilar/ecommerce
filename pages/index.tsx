@@ -64,8 +64,8 @@ const Home: NextPage<homeProps> = ({topBar,menu,iconLibrary,products}) => {
 export async function getStaticProps() {
 //  export async function getServerSideProps() {
   const client = createClient({
-      space: process.env.CONTENTFUL_SPACE || '222',
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '123'
+      space: process.env.CONTENTFUL_SPACE || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ''
   })
   
   const topBar = await client.getEntries({
