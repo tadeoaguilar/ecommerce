@@ -35,11 +35,11 @@ export type ApiFetcherOptions = {
     query,
     variables }: ApiFetcherOptions
   ): Promise<ApiFetcherResults<T>> => {
-    const res = await fetch('https://test-tam2.myshopify.com/api/2021-07/graphql.json', {
+    const res = await fetch(process.env.SHOPIFY_URL || '', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": '81c39a29a055cafede6833b04f74fd49'
+        "X-Shopify-Storefront-Access-Token": process.env.SHOPIFY_ACCESS_TOKEN || ''
       },
       body: JSON.stringify({
         query,
