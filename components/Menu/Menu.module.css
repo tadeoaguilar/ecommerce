@@ -3,11 +3,11 @@
 }
 
 .navbar{
- @apply   z-40 backdrop-blur-xl absolute top-0 left-0 h-[100vh] w-full flex justify-center content-center lg:justify-end lg:content-end lg:flex lg:static lg:h-auto
+ @apply   z-40 backdrop-blur-xl absolute top-0 left-0 h-[100vh] w-full flex justify-center content-center laptop:justify-end laptop:content-end laptop:flex laptop:static laptop:h-auto
 
 }
 .navbar_hidden{
-    @apply   hidden  lg:flex lg:static lg:h-auto
+    @apply   hidden  laptop:flex laptop:static laptop:h-auto
    
    }
 
@@ -18,7 +18,7 @@
     @apply flex  items-center relative  min-w-[100px] w-16 h-full
 }
 .List{
-    @apply  flex flex-col items-center   text-primary-400 list-none  lg:flex-row lg:justify-end
+    @apply  flex flex-col items-center   text-primary-400 list-none  laptop:flex-row laptop:justify-end
 }
 .ListItem{
     @apply text-2xl px-4 font-medium focus:ring-4 focus:ring-red-300   hover:text-accent 
@@ -28,6 +28,6 @@
 }
 
 .hamburger{
-    @apply block lg:hidden
+    @apply block laptop:hidden
 }
 
